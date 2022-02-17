@@ -21,3 +21,6 @@ provider "netbox" {
   api_token  = var.netbox_api_token
 }
 
+module "cluster" {
+  source = "./modules/cluster"
+}
