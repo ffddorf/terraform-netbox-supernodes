@@ -24,3 +24,9 @@ provider "netbox" {
 module "cluster" {
   source = "./modules/cluster"
 }
+
+module "network" {
+  source      = "./modules/network"
+  prefix_ipv4 = var.prefix_ipv4
+  prefix_ipv6 = var.prefix_ipv6
+}
