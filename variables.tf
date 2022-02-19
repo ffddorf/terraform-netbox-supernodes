@@ -16,11 +16,3 @@ variable "prefix_ipv6" {
   type        = string
   description = "Network prefix (IPv6, CIDR notation, e.g. 'fd00:1::/48')"
 }
-
-variable "supernodes" {
-  type = map(object({
-    name         = string
-    ipv4_address = string
-    ipv6_address = string
-  }))
-}
