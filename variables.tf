@@ -16,3 +16,9 @@ variable "prefix_ipv6" {
   type        = string
   description = "Network prefix (IPv6, CIDR notation, e.g. 'fd00:1::/48')"
 }
+
+variable "core_router_names" {
+  type        = set(string)
+  default     = []
+  description = "Name of the core routers to connect to (list of strings, default empty)"
+}

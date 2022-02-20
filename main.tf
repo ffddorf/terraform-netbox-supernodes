@@ -54,5 +54,7 @@ module "supernode" {
   prefix_ipv4_id = module.network.ipv4
   prefix_ipv6_id = module.network.ipv6
 
+  core_router_names = var.core_router_names
+
   for_each = local.supernodes
 }

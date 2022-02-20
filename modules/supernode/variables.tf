@@ -17,3 +17,9 @@ variable "prefix_ipv6_id" {
   type        = string
   description = "ID of the Supernode IPv6 prefix (number)"
 }
+
+variable "core_router_names" {
+  type        = set(string)
+  default     = []
+  description = "Name of the core routers to connect to (list of strings, default empty)"
+}
