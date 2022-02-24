@@ -17,10 +17,20 @@ variable "prefix_ipv6" {
   description = "Network prefix (IPv6, CIDR notation, e.g. 'fd00:1::/48')"
 }
 
-variable "supernodes" {
-  type = map(object({
-    name         = string
-    ipv4_address = string
-    ipv6_address = string
-  }))
+variable "core_router_names" {
+  type        = set(string)
+  default     = []
+  description = "Name of the core routers to connect to (list of strings, default empty)"
 }
+
+variable "tunnel_prefix_ipv4" {
+  type        = string
+  description = "Tunnel prefix (IPv4, CIDR notation, e.g. '10.1.0.0/16')"
+}
+
+variable "tunnel_prefix_ipv6" {
+  type        = string
+  description = "Tunnel prefix (IPv6, CIDR notation, e.g. 'fd00:1::/48')"
+}
+
+
