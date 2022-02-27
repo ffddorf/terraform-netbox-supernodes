@@ -1,6 +1,6 @@
 resource "netbox_available_prefix" "public_ipv4" {
-  description      = "Loopback ${var.name}"
-  status           = "reserved"
+  description = "Loopback ${var.name}"
+  status      = "reserved"
 
   parent_prefix_id = var.prefix_ipv4_id
   prefix_length    = 32
