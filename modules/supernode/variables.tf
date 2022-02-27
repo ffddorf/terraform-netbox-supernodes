@@ -38,3 +38,9 @@ variable "core_router_names" {
   default     = []
   description = "Name of the core routers to connect to (list of strings, default empty)"
 }
+
+variable "tags" {
+  type        = list(string)
+  description = "Tags for the resources (list of strings, default empty)"
+  default     = []
+}
