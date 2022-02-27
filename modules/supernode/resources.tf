@@ -102,3 +102,15 @@ resource "netbox_available_ip_address" "tunnel_ipv4" {
     ]
   }
 }
+
+resource "netbox_primary_ip" "v4" {
+  ip_address_id      = netbox_available_ip_address.public_ipv4.id
+  ip_address_version = 4
+  virtual_machine_id = var.vm_id
+}
+
+resource "netbox_primary_ip" "v6" {
+  ip_address_id      = netbox_available_ip_address.public_ipv6.id
+  ip_address_version = 6
+  virtual_machine_id = var.vm_id
+}
