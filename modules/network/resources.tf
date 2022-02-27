@@ -6,6 +6,13 @@ resource "netbox_available_prefix" "ipv4" {
   is_pool          = true
 
   tags = toset(var.tags)
+
+  lifecycle {
+    ignore_changes = [
+      site_id,
+      tenant_id,
+    ]
+  }
 }
 
 resource "netbox_available_prefix" "ipv6" {
@@ -15,4 +22,11 @@ resource "netbox_available_prefix" "ipv6" {
   parent_prefix_id = data.netbox_prefix.ipv6.id
 
   tags = toset(var.tags)
+
+  lifecycle {
+    ignore_changes = [
+      site_id,
+      tenant_id,
+    ]
+  }
 }
