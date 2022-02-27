@@ -2,6 +2,8 @@ resource "netbox_interface" "public" {
   name = "public"
 
   virtual_machine_id = var.vm_id
+
+  tags = toset(var.tags)
 }
 
 resource "netbox_available_ip_address" "public_ipv4" {
@@ -9,6 +11,8 @@ resource "netbox_available_ip_address" "public_ipv4" {
 
   prefix_id    = var.prefix_ipv4_id
   interface_id = netbox_interface.public.id
+
+  tags = toset(var.tags)
 
   lifecycle {
     ignore_changes = [
@@ -23,6 +27,8 @@ resource "netbox_available_ip_address" "public_ipv6" {
   prefix_id    = var.prefix_ipv6_id
   interface_id = netbox_interface.public.id
 
+  tags = toset(var.tags)
+
   lifecycle {
     ignore_changes = [
       status,
@@ -36,6 +42,8 @@ resource "netbox_interface" "tunnel" {
 
   virtual_machine_id = var.vm_id
 
+  tags = toset(var.tags)
+
   for_each = var.core_router_names
 }
 
@@ -47,6 +55,8 @@ resource "netbox_available_prefix" "tunnel_ipv4" {
   is_pool          = true
 
   for_each = var.core_router_names
+
+  tags = toset(var.tags)
 
   lifecycle {
     ignore_changes = [
@@ -63,6 +73,8 @@ resource "netbox_available_prefix" "tunnel_ipv6" {
   is_pool          = true
 
   for_each = var.core_router_names
+
+  tags = toset(var.tags)
 
   lifecycle {
     ignore_changes = [
@@ -81,6 +93,8 @@ resource "netbox_available_ip_address" "tunnel_ipv4" {
     [for o in netbox_available_prefix.tunnel_ipv4 : o.id],
     [for o in netbox_interface.tunnel : o.id],
   )
+
+  tags = toset(var.tags)
 
   lifecycle {
     ignore_changes = [
