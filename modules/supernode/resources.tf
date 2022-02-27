@@ -127,6 +127,26 @@ resource "netbox_available_ip_address" "tunnel_ipv4" {
   }
 }
 
+resource "netbox_available_ip_address" "tunnel_ipv6" {
+  prefix_id    = each.key
+  interface_id = each.value
+
+  status = "reserved"
+
+  for_each = zipmap(
+    [for o in netbox_available_prefix.tunnel_ipv6 : o.id],
+    [for o in netbox_interface.tunnel : o.id],
+  )
+
+  tags = toset(var.tags)
+
+  lifecycle {
+    ignore_changes = [
+      status,
+    ]
+  }
+}
+
 resource "netbox_primary_ip" "v4" {
   ip_address_id      = netbox_available_ip_address.public_ipv4.id
   ip_address_version = 4
