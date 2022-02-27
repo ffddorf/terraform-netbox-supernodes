@@ -34,7 +34,7 @@ module "network" {
   prefix_ipv4 = var.prefix_ipv4
   prefix_ipv6 = var.prefix_ipv6
 
-  tags = [ module.tag.name ]
+  tags = [module.tag.name]
 }
 
 module "tunnel" {
@@ -74,5 +74,5 @@ module "supernode" {
 
   for_each = local.supernodes
 
-  tags = [ module.tag.name ]
+  tags = [module.tag.name]
 }
