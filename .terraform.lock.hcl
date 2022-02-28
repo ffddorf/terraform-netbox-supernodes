@@ -5,6 +5,7 @@ provider "registry.terraform.io/e-breuninger/netbox" {
   version     = "0.3.2"
   constraints = "0.3.2"
   hashes = [
+    "h1:4iTafxhXELB3KGDIpIHteklq3lxCtgTvonxEwayDwsM=",
     "h1:nYZGBe5a3ycNFCuRzTAOku2gicgvkXuQbtDJp8ezRIs=",
     "zh:24c484282771de2c1f0d86eb1d8e13431e22db26355912e65d8c53ba24c9f677",
     "zh:28fbf60d188e7c629bf5cd1364ab40d19dfb210e9c4128ed5f0163e66f152eaa",
