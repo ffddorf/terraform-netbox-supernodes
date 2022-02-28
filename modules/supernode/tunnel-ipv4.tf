@@ -30,6 +30,10 @@ resource "netbox_available_ip_address" "tunnel_ipv4" {
 
   tags = toset(var.tags)
 
+  depends_on = [
+    netbox_available_ip_address.tunnel_peer_ipv4,
+  ]
+
   lifecycle {
     ignore_changes = [
       status,
@@ -45,10 +49,6 @@ resource "netbox_available_ip_address" "tunnel_peer_ipv4" {
   for_each = netbox_available_prefix.tunnel_ipv4
 
   tags = toset(var.tags)
-
-  depends_on = [
-    netbox_available_ip_address.tunnel_ipv4
-  ]
 
   lifecycle {
     ignore_changes = [

@@ -42,7 +42,8 @@ resource "netbox_available_ip_address" "tunnel_ipv6" {
   tags = toset(var.tags)
 
   depends_on = [
-    netbox_ip_address.reserve_zero
+    netbox_ip_address.reserve_zero,
+    netbox_available_ip_address.tunnel_peer_ipv6,
   ]
 
   lifecycle {
@@ -60,10 +61,6 @@ resource "netbox_available_ip_address" "tunnel_peer_ipv6" {
   for_each = netbox_available_prefix.tunnel_ipv6
 
   tags = toset(var.tags)
-
-  depends_on = [
-    netbox_available_ip_address.tunnel_ipv6
-  ]
 
   lifecycle {
     ignore_changes = [
