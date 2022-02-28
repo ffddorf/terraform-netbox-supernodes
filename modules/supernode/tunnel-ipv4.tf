@@ -36,3 +36,23 @@ resource "netbox_available_ip_address" "tunnel_ipv4" {
     ]
   }
 }
+
+resource "netbox_available_ip_address" "tunnel_peer_ipv4" {
+  prefix_id = each.value.id
+
+  status = "reserved"
+
+  for_each = netbox_available_prefix.tunnel_ipv4
+
+  tags = toset(var.tags)
+
+  depends_on = [
+    netbox_available_ip_address.tunnel_ipv4
+  ]
+
+  lifecycle {
+    ignore_changes = [
+      status,
+    ]
+  }
+}

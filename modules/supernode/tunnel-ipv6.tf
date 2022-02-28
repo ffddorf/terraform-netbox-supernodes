@@ -51,3 +51,23 @@ resource "netbox_available_ip_address" "tunnel_ipv6" {
     ]
   }
 }
+
+resource "netbox_available_ip_address" "tunnel_peer_ipv6" {
+  prefix_id = each.value.id
+
+  status = "reserved"
+
+  for_each = netbox_available_prefix.tunnel_ipv6
+
+  tags = toset(var.tags)
+
+  depends_on = [
+    netbox_available_ip_address.tunnel_ipv6
+  ]
+
+  lifecycle {
+    ignore_changes = [
+      status,
+    ]
+  }
+}
