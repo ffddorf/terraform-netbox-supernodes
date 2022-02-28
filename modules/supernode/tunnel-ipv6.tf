@@ -16,6 +16,18 @@ resource "netbox_available_prefix" "tunnel_ipv6" {
   }
 }
 
+resource "netbox_ip_address" "reserve_zero" {
+  # we don't want to use the 0 address,
+  # because of bugs in other tools
+
+  ip_address = each.value.prefix
+  status     = "reserved"
+
+  for_each = netbox_available_prefix.tunnel_ipv6
+  
+  tags = toset(var.tags)
+}
+
 resource "netbox_available_ip_address" "tunnel_ipv6" {
   prefix_id    = each.key
   interface_id = each.value
@@ -28,6 +40,10 @@ resource "netbox_available_ip_address" "tunnel_ipv6" {
   )
 
   tags = toset(var.tags)
+
+  depends_on = [
+    netbox_ip_address.reserve_zero
+  ]
 
   lifecycle {
     ignore_changes = [
