@@ -48,6 +48,7 @@ resource "netbox_available_ip_address" "tunnel_ipv6" {
 
   lifecycle {
     ignore_changes = [
+      interface_id,
       status,
     ]
   }
@@ -64,6 +65,7 @@ resource "netbox_available_ip_address" "tunnel_peer_ipv6" {
 
   lifecycle {
     ignore_changes = [
+      interface_id,
       status,
     ]
   }
