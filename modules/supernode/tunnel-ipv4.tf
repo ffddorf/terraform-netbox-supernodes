@@ -18,15 +18,12 @@ resource "netbox_available_prefix" "tunnel_ipv4" {
 }
 
 resource "netbox_available_ip_address" "tunnel_ipv4" {
-  prefix_id    = each.key
-  interface_id = each.value
+  prefix_id    = netbox_available_prefix.tunnel_ipv4[each.key].id
+  interface_id = netbox_interface.tunnel[each.key].id
 
   status = "reserved"
 
-  for_each = zipmap(
-    [for o in netbox_available_prefix.tunnel_ipv4 : o.id],
-    [for o in netbox_interface.tunnel : o.id],
-  )
+  for_each = var.core_router_names
 
   tags = toset(var.tags)
 
