@@ -24,7 +24,7 @@ resource "netbox_ip_address" "reserve_zero" {
   status     = "reserved"
 
   for_each = netbox_available_prefix.tunnel_ipv6
-  
+
   tags = toset(var.tags)
 }
 

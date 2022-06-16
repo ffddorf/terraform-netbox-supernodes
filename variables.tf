@@ -25,7 +25,7 @@ variable "core_router_names" {
   description = "Name of the core routers to connect to (list of strings, default empty)"
   default = [
     "CR3",
-    "CR4"
+    "CR4",
   ]
 }
 
