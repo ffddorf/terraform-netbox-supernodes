@@ -12,6 +12,8 @@ resource "netbox_available_prefix" "public_ipv4" {
 resource "netbox_available_ip_address" "public_ipv4" {
   status = "reserved"
 
+  description  = "public IPv4 ${var.name}"
+
   prefix_id    = netbox_available_prefix.public_ipv4.id
   interface_id = netbox_interface.public.id
 
