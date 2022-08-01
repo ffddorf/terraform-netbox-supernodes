@@ -26,6 +26,7 @@ variable "core_router_names" {
   default = [
     "CR3",
     "CR4",
+    "CR5",
   ]
 }
 
