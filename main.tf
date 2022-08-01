@@ -55,6 +55,7 @@ locals {
   supernodes = {
     for vm in data.netbox_virtual_machines.supernodes.vms :
     vm.name => vm
+    if vm.status == "active"
   }
 }
 
