@@ -2,16 +2,16 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/e-breuninger/netbox" {
-  version     = "2.0.4"
-  constraints = "2.0.4"
+  version     = "2.0.5"
+  constraints = "2.0.5"
   hashes = [
-    "h1:59eKEwuYgVlih8Wdu8XwIQcjZDMRyOcxEfVMRZoqgDg=",
-    "h1:FMgaFUJT4DiuG6fcIv521oAHnKg/1xraJmq/gYDuUOw=",
-    "h1:TAC1+e/ZlloG4CuR/4b+lyyZFg5qzTrtZr2qKw7mwkc=",
-    "h1:ZvUFGqpp70RgcdcWh1WvDfvt60hnepyxtklwdSz4RlM=",
-    "h1:dvqjGDEGmAmQQcVPtg2ui5WRN3h0kzWSvdzpOk01JfU=",
-    "h1:g+KGYye3Rr6SL8wHtVi4/6wCyZulSmPIMXecq6d5YsA=",
-    "h1:qul4jl+Hy7lvAw0RBVQTti71/CjibjXmuB0aoW3MWk0=",
-    "h1:rkpFhCNptGdUiTtTjOEmJqP7v6XsaWJFKqHKSfgWCPM=",
+    "h1:I5zKwxfp9YbcenORXDxjgXMGm/Dwc4gBO2ogfFkLQXI=",
+    "h1:I7kA2S6raoQ52v1XrHEMoHweVQ7YXZVgwzqG8OHobVo=",
+    "h1:KibYURJapOAVngCc7t7juHSLycXCAmko0hHEZDrHoDE=",
+    "h1:k4pqGvQNR3kp0gocaEY+7BRmVHrSy0m1t5yQ/LKiVzY=",
+    "h1:oW1FN6O10DfgQ8JRUepERnGPKG8iXENiLqBuuxTAvzY=",
+    "h1:xBNsxzqjMT36kvP5tqiPBmHXV3cclqlQ1xGw06eG9po=",
+    "h1:y4LQvxBeYaFvQ/WXDGLlY15oISV3JVUFxZzomvnk5GY=",
+    "h1:yVBJjQ+YrA6+7NyyERGc+fYmOFLnbLRZrYqvEfhfips=",
   ]
 }
